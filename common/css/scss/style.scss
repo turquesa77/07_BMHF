@@ -1,0 +1,1064 @@
+/* Scss Document */
+
+@charset "UTF-8";
+/*! ============================================
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+このCSSファイルはSassから生成されていますので、
+編集しないようご注意ください。
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+============================================= */
+
+
+// --------------------------------------------
+// Style Guide
+// 基本的な考えは、OOCSSベース。
+// 
+// #命名規則
+// MindBEMdingをベースに以下のルールで記載。
+// block__element--modifier
+// ※Blockが複数単語になる場合は、「blockName」のようにキャメルケースにする。
+// ※分かりやすいクラス名は略名にする。
+// ※Block, Element, Modifierは、まとめて同じ箇所に記述する。
+// --------------------------------------------
+
+
+// ============================================
+// import css
+// ============================================
+
+//reset css
+@import "_base.scss";
+// "slick" slide show
+@import '_slick.scss';
+@import '_slick-theme.scss';
+// settings
+@import '_settings.scss';
+// module
+@import '_module.scss';
+// component
+@import '_g_header_fixed.scss'; // JMA menu
+@import '_c_headinfo.scss'; // headInfo in header
+@import '_c_megamenu.scss'; // megamenu in header
+@import '_c_keyvisual.scss'; // keyVisual
+@import '_c_information.scss'; // What's New
+@import '_c_contact.scss'; // contact in footer
+@import '_c_footer.scss'; // nav in footer
+@import '_c_timetable.scss'; // timeTable
+@import '_c_fee.scss'; // booth & fee
+@import '_c_visit.scss'; // visit
+@import '_c_download.scss'; // logo, banner download
+@import '_c_qanda.scss'; // FAQ
+
+
+// --------------------------------------------
+// Project
+// --------------------------------------------
+
+// JMA nav ------------------------------
+#global_link {
+	padding: 5px 10px;
+	@include media(sp) {
+		display: none;
+	}
+}
+
+// nav ------------------------------
+nav {
+	background-color: $color-main;
+	box-shadow: 0px 9px 3px -3px rgba(black, 0.1);
+	position: relative; // for box-shadow
+	z-index: 2; // for box-shadow
+}
+
+// links ------------------------------
+.links {
+	@include space-btm;
+	&__title {
+		text-align: center;
+	}
+	&__body {
+		background-color: white;
+		//padding: 20px;
+		padding: 20px 20px 20px 50px;
+		overflow: hidden;
+		@include media(sp) {
+			padding: 20px;
+		}
+		li {
+			text-align: center;
+		}
+		a {
+			@include hoverOpc;
+		}
+	}
+}
+
+// lower ------------------------------
+.lower {
+	@include space;
+	background-color: white;
+	&--inner {
+		max-width: $width-main;
+		@include media(sp) {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	&__photo {
+		max-width: 500px;
+		@include space;
+		margin: 0 auto 30px;
+		overflow: hidden;
+		img {
+			max-width: 500px;
+		}
+	}
+	&__btn {
+		max-width: 700px;
+		margin: 0 auto 80px;
+	}
+	@mixin define-style {
+		dt {
+			clear: left;
+			float: left;
+			@include media(sp) {
+				float: none;
+				width: 100%;
+			}
+		}
+	}
+	&__define {
+		max-width: 700px;
+		margin: 0 auto;
+		@include define-style;
+		dt {
+			width: 8em;
+			background-color: $color-main;
+			color: white;
+			padding: 7px 10px;
+		}
+		dd {
+			padding: 7px 10px 7px 10em;
+			margin-bottom: 10px;
+			background-color: $color-sub2;
+			@include media(sp) {
+				padding: 7px 10px;
+			}
+		}
+	}
+	&__define2 {
+		@include define-style;
+		dt {
+			width: 8em;
+		}
+		dd {
+			padding-left: 10em;
+			border-bottom: 1px solid #ccc;
+		}
+	}
+	&__append {
+		max-width: 700px;
+		margin: 0 auto 80px;
+		@include font-size(14);
+	}
+	&__fig {
+		max-width: 800px;
+		margin: 0 auto 80px;
+	}
+}
+
+// mobileArea ------------------------------
+.mobileArea {
+	@include media(pc) {
+		display: none;
+	}
+	&--inner {
+		padding: 20px 10px;
+	}
+	&__btn {
+		li + li {
+			margin-top: 10px;
+		}
+	}
+}
+
+// point ------------------------------
+.point {
+	&__title {
+		@include indent(2);
+		&__num {
+			display: inline-block;
+			background-color: $color-main;
+			color: white;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			@include font-size(30);
+			text-align: center;
+			padding-left: 50px;
+			margin-right: 10px;
+		}
+	}
+}
+
+// outline ------------------------------
+.outline {
+	&__tbl {
+		max-width: 750px;
+		margin-bottom: 50px;
+		&__logo {
+			max-width: 300px;
+		}
+	}
+}
+
+// target ------------------------------
+.target {
+	&__pageNav {
+		max-width: 400px;
+		margin: 0 auto 50px;
+	}
+	&--visitTbl {
+		margin-bottom: 50px;
+		th {
+			text-align: left;
+			width: 30%;
+		}
+	}
+}
+
+// targetCateg ------------------------------
+.targetCateg {
+	max-width: 1100px;
+	@include space-btm;
+	margin: 0 auto;
+	&--container {
+		background-color: white;
+	}
+	&--inner {
+		@include cardInner;
+	}
+	&__title {
+		@include font-size(22);
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+	&__append {
+		@include font-size(15);
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	&__list {
+		@include font-size(15);
+		li {
+			@include indent(1);
+			margin-bottom: 5px;
+			&:before {
+				content: "●";
+			}
+		}
+	}
+	&--1 {
+		.cardImg {
+			background: url(#{$imgDir}figImg_target01.jpg) 20% 20% no-repeat $color-main;
+		}
+	}
+	&--2 {
+		.cardImg {
+			order: 2;
+			background: url(#{$imgDir}figImg_target02.jpg) 50% 0% no-repeat $color-main;
+			&:after {
+				left: -100%;
+			}
+		}
+	}
+	&--3 {
+		.cardImg {
+			background: url(#{$imgDir}figImg_target03.jpg) 30% 40% no-repeat $color-main;
+		}
+	}
+	&--4 {
+		.cardImg {
+			order: 2;
+			background: url(#{$imgDir}figImg_target04.jpg) 60% 0% no-repeat $color-main;
+			&:after {
+				left: -100%;
+			}
+		}
+	}
+	&--5 {
+		.cardImg {
+			background: url(#{$imgDir}figImg_target05.jpg) 70% 70% no-repeat $color-main;
+		}
+	}
+	&--6 {
+		.cardImg {
+			order: 2;
+			background: url(#{$imgDir}figImg_target06.jpg) 20% 35% no-repeat $color-main;
+			&:after {
+				left: -100%;
+			}
+		}
+	}
+	&--7 {
+		.cardImg {
+			background: url(#{$imgDir}figImg_target07.jpg) 40% 30% no-repeat $color-main;
+		}
+	}
+	&--8 {
+		.cardImg {
+			order: 2;
+			background: url(#{$imgDir}figImg_target08.jpg) 15% 30% no-repeat $color-main;
+			&:after {
+				left: -100%;
+			}
+		}
+	}
+	&--9 {
+		.cardImg {
+			background: url(#{$imgDir}sports_img14.jpg) 55% 50% no-repeat $color-main;
+		}
+		.cardTxt {
+			background-color: $color-type03;
+		}
+	}
+}
+
+// exhibit-fee ------------------------------
+.exhibit-fee {
+	background-color: white;
+	@include space-btm;
+	&__pageNav {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+}
+.apply {
+	&--inner {
+		max-width: $width-main;
+		@include media(sp) {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	&__deadline {
+		margin-top: 15px;
+		color: red;
+	}
+	&__define {
+		dt {
+			clear: left;
+			float: left;
+			width: 10em;
+			font-weight: bold;
+			@include media(sp) {
+				float: none;
+				width: 100%;
+			}
+		}
+		dd {
+			padding-left: 12em;
+			padding-bottom: 5px;
+			margin-bottom: 15px;
+			border-bottom: 1px solid #ccc;
+			@include media(sp) {
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+// exhibit-option ------------------------------
+.exhibit-option {
+	background-color: white;
+	@include space;
+	.booth {
+		padding-bottom: 0;
+	}
+}
+
+// qanda ------------------------------
+.qanda {
+	padding-bottom: 100px;
+	&--inner {
+		max-width: 800px;
+	}
+}
+
+// youtube ------------------------------
+.youtube {
+	@include space;
+	@media screen and (min-width:960px) {
+		display: none;
+	}
+	&--inner {
+		max-width: 1000px;
+	}
+	&__unit {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		@include media(sp) {
+			flex-flow: column;
+			align-items: center;
+		}
+		li {
+			width: 45%;
+			@include media(sp) {
+				width: 90%;
+			}
+			iframe {
+				width: 100%;
+			}
+			+ li {
+				@include media(sp) {
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}
+
+// guidance ------------------------------
+.guidance {
+	&__logo {
+		max-width: 400px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	&__list {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 32%;
+			border: 1px solid $color-main;
+			text-align: center;
+			@include media(sp) {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+	}
+	&__center {
+		text-align: center;
+	}
+	&__define {
+		margin: 15px;
+		text-align: left;
+		dt {
+			clear: left;
+			float: left;
+			width: 4em;
+		}
+		dd {
+			padding-left: 4em;
+			border-bottom: 1px solid #ccc;
+			margin-bottom: 10px;
+		}
+	}
+	&__btn {
+		display: inline-block;
+		a {
+			display: block;
+			width: 100%;
+			background-color: $color-type03;
+			color: white;
+			border-radius: 10px;
+			padding: 10px 20px;
+			@include hoverOpc;
+		}
+	}
+	&__append {
+		@include font-size(14);
+	}
+	&__strong {
+		font-weight: bold;
+		@include font-size(20);
+		color: $color-main;
+	}
+	&__special {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 40%;
+			text-align: center;
+			background-color: lighten($color-type02, 42%);
+			padding: 20px;
+			position: relative;
+			@include media(sp) {
+				width: 100%;
+			}
+			+ li {
+				@include media(sp) {
+					margin-top: 40px;
+				}
+			}
+		}
+		&__pop {
+			position: absolute;
+			top: -30px;
+			left: 25px;
+			width: 50px;
+			height: 50px;
+			background-color: $color-main;
+			color: white;
+			@include font-size(32);
+			font-weight: bold;
+			border-radius: 50%;
+		}
+	}
+	&__schedule {
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		&__define {
+			text-align: center;
+			border: 1px solid $color-main;
+			padding: 26px 40px 0;
+			@include media(sp) {
+				padding: 20px;
+			}
+			dt {
+				font-weight: bold;
+				color: $color-main;
+			}
+			dd {
+				margin-bottom: 10px;
+			}
+		}
+		&__time {
+			margin-left: 100px;
+			@include media(sp) {
+				margin-left: 0;
+				margin-top: 20px;
+			}
+			&__strong {
+				@include font-size(18);
+				color: $color-main;
+			}
+		}
+		&__list {
+			li {
+				line-height: 2;
+				&:before {
+					content: "▼";
+					color: $color-main;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+// sports ------------------------------
+.sports {
+	&__pageNav {
+		max-width: 700px;
+		margin: 0 auto;
+		li {
+			margin-bottom: 10px;
+		}
+	}
+	&--outline {
+		.outline__tbl {
+			margin-bottom: 0;
+		}
+	}
+	&__center {
+		text-align: center;
+	}
+	&__red {
+		color: $color-type01;
+	}
+	&__btn {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	&__mainTitle {
+		@include font-size(28);
+		font-weight: bold;
+		color: $color-type02;
+	}
+	&__title {
+		color: $color-type01;
+		@include font-size(20);
+	}
+	&__txtUnit {
+		width: 90%;
+		margin: 0 auto;
+	}
+	&__list {
+		max-width: 800px;
+		margin: 0 auto;
+		> li {
+			+ li {
+				margin-top: 25px;
+			}
+		}
+	}
+	&__list2 {
+		max-width: 600px;
+		margin: 0 auto;
+		li {
+			line-height: 2;
+			font-weight: bold;
+			margin-right: 15px;
+			margin-bottom: 10px;
+			&:before {
+				content: "●";
+				color: $color-main;
+			}
+			span {
+				font-weight: normal;
+				@include font-size(15);
+			}
+		}
+	}
+	&__list3 {
+		li {
+			@include indent(1);
+			margin-bottom: 10px;
+			&:before {
+				content: "●";
+				color: $color-main;
+			}
+		}
+	}
+	&__fig1 { // img1枚
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	&__fig2 { // img2枚
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 45%;
+			@include media(sp) {
+				width: 100%;
+				+ li {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	&__fig3 { // img3枚
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		&-2 {
+			@include media(sp) {
+				flex-flow: column;
+			}
+			li {
+				width: 30%;
+				@include media(sp) {
+					width: 100%;
+					max-width: 300px;
+					margin: 10px auto 0;
+				}
+			}
+		}
+	}
+	&__fig4 { // img4枚
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 23%;
+			@include media(sp) {
+				width: 100%;
+				max-width: 300px;
+				margin: 10px auto 0;
+			}
+		}
+	}
+	&__fig5 {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 19%;
+			@include media(sp) {
+				width: 100%;
+				max-width: 300px;
+				margin: 0 auto;
+				+ li {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+// article ------------------------------
+.article {
+	$color-green: #349493;
+	$color-blue: #2fa7e0;
+	$color-toilet: #711519;
+	$color-aroma: #738f11;
+	
+	&__unit {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 32%;
+			background-color: $color-main;
+			box-shadow: 0 0 5px 0 #aaa;
+			margin-bottom: 40px;
+			@include media(sp) {
+				width: 100%;
+			}
+		}
+		&--toilet li { background-color: $color-toilet;	}
+		&--aroma li { background-color: darken($color-aroma, 10%); }
+		&__top {
+			position: relative;
+		}
+		&__bottom {
+			color: white;
+			padding: 10px;
+			&__box {
+				display: flex;
+				flex-flow: row;
+				justify-content: space-between;
+				align-items: flex-end;
+			}
+		}
+	}
+	&__exhibit {
+		padding: 5px 10px;
+		background-color: $color-blue;
+		font-weight: bold;
+		@include font-size(24);
+		&--toilet {
+			background-color: lighten($color-toilet, 20%);
+		}
+		&--aroma {
+			background-color: lighten($color-aroma, 5%);
+		}
+	}
+	&__belt {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		@include font-size(13);
+		color: white;
+		background-color: rgba($color-main, 0.7);
+		padding: 2px 10px;
+		&--toilet { background-color: rgba($color-toilet, 0.7); }
+		&--aroma { background-color: rgba($color-aroma, 0.7); }
+	}
+	&__year {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 50px;
+		height: 50px;
+		@include font-size(12);
+		color: white;
+		text-align: center;
+		background-color: $color-green;
+		border-radius: 50%;
+		padding-top: 7px;
+	}
+	&__company {
+		@include font-size(13);
+	}
+	&__read {
+		a {
+			display: block;
+			width: 100%;
+			width: 60px;
+			height: 60px;
+			background-color: white;
+			color: $color-sub1;
+			//color: $color-green;
+			@include font-size(13);
+			font-weight: bold;
+			text-align: center;
+			border-radius: 50%;
+			padding-top: 11px;
+			transition: all 0.3s ease;
+			&:hover {
+				background-color: $color-type03;
+				color: white;
+			}
+		}
+	}
+}
+
+// photo ------------------------------
+.photo {
+	&__list {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		li {
+			width: 24%;
+			margin-bottom: 20px;
+			@include media(sp) {
+				width: 48%;
+			}
+		}
+	}
+}
+
+// program ------------------------------
+.program {
+	$color-blue: #114eba;
+	$color-green: #009e9c;
+	&__center {
+		text-align: center;
+	}
+	&__red {
+		color: $color-type01;
+	}
+	&__flow { // セミナー聴講登録の流れ
+		padding: 0 20px;
+		dt {
+			clear: left;
+			float: left;
+			width: 6em;
+			color: white;
+			text-align: center;
+			background-color: $color-type02;
+			@include media(sp) {
+				float: none;
+				width: 100%;
+			}
+		}
+		dd {
+			padding-left: 7em;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid #ccc;
+			@include media(sp) {
+				padding-left: 0;
+			}
+		}
+		&__title {
+			@include font-size(18);
+			color: darken($color-type02, 10%);
+			font-weight: bold;
+		}
+	}
+	&__apply { // 来場事前登録ボタン
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			@include media(sp) {
+				margin-bottom: 15px;
+			}
+			a {
+				display: block;
+				background-color: darken($color-type02, 10%);
+				color: white;
+				@include font-size(15);
+				text-align: center;
+				padding: 10px 20px;
+				@include hoverOpc;
+			}
+		}
+		&__l {
+			@include font-size(20);
+			font-weight: bold;
+		}
+	}
+	&__mainTitle { // セミナーカテゴリー
+		background-color: $color-type02;
+	}
+	&__append { // 補足（定員など）
+		@include font-size(14);
+		text-align: right;
+		@include media(sp) {
+			text-align: left;
+		}
+		li {
+			display: inline-block;
+			margin-right: 1em;
+			@include media(sp) {
+				display: block;
+				margin-bottom: 5px;
+			}
+			span {
+				display: inline-block;
+				background-color: $color-main;
+				color: white;
+				padding: 0 10px;
+				margin-right: 5px;
+			}
+		}
+	}
+	&__box {
+		display: flex;
+		flex-flow: row;
+		border: 1px solid $color-main;
+		@include media(sp) {
+			flex-flow: column;
+		}
+	}
+	&__date {
+		width: 190px;
+		background-color: $color-main;
+		color: white;
+		text-align: center;
+		padding: 10px;
+		@include media(sp) {
+			width: 100%;
+		}
+		&__year {
+			font-family: $font-base-EN-Tinos;
+			@include font-size(17);
+		}
+		&__day {
+			@include font-size(17);
+		}
+		&__time {
+			font-family: $font-base-EN-Tinos;
+			@include font-size(24);
+			span {
+				@include font-size(36);
+			}
+		}
+		&__place {
+			display: inline-block;
+			background-color: $color-type05;
+			color: white;
+			padding: 3px 10px;
+		}
+	}
+	&__desc {
+		width: calc(100% - 190px);
+		@include font-size(15);
+		background-color: lighten($color-sub2, 2%);
+		padding: 20px;
+		@include media(sp) {
+			width: 100%;
+		}
+		&__categ {
+			display: inline-block;
+			color: white;
+			@include font-size(14);
+			padding: 3px 10px;
+			background-color: $color-blue;
+		}
+	}
+	&__title {
+		display: flex;
+		flex-flow: row;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		&__num {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background-color: $color-main;
+			color: white;
+			@include font-size(26);
+			text-align: center;
+			border-radius: 50%;
+			margin-right: 10px;
+			@include media(sp) {
+				margin-bottom: 5px;
+			}
+		}
+		&__lead {
+			@include font-size(19);
+			color: $color-main;
+		}
+	}
+	&__btn {
+		cursor: pointer;
+		width: 250px;
+		background-color: $color-green;
+		color: white;
+		@include font-size(16);
+		text-align: center;
+		padding: 10px;
+		margin-left: auto;
+		@include hoverOpc;
+		img {
+			width: 23px;
+			margin-left: 10px;
+		}
+	}
+	&__toggle {
+		display: none;
+	}
+	&__prof {
+		display: flex;
+		flex-flow: row;
+		align-items: flex-end;
+		@include font-size(14);
+		figure {
+			max-width: 120px;
+			width: 100%;
+			margin-right: 10px;
+		}
+	}
+	&__end {
+		display: inline-block;
+		color: white;
+		@include font-size(18);
+		background-color: $color-type01;
+		padding: 5px 20px;
+	}
+}
+
+.feature {
+	background: white;
+	&__list {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+		max-width: 1000px;
+		margin: 0 auto;
+		@include media(sp) {
+			flex-flow: column;
+		}
+		li {
+			width: 31%;
+			max-width: 369px;
+			box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+			@include hoverOpc;
+			@include media(sp) {
+				width: 90%;
+				margin: 20px auto 0;
+			}
+			a:hover {
+				opacity: 0.9;
+			}
+		}
+	}
+}

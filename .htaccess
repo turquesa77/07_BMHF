@@ -1,0 +1,95 @@
+# 「http」と「https」を切り分けてリダイレクト
+RewriteEngine on
+RewriteBase /
+
+
+#トップ（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^index.html http://www.humanfair-cleanexpo.org/index.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^index.html https://www.humanfair-cleanexpo.org/index.php [R=301,L]
+
+#ビルメンヒューマンフェア＆クリーンEXPOとは（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^outline/about.html http://www.humanfair-cleanexpo.org/outline/about.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^outline/about.html https://www.humanfair-cleanexpo.org/outline/about.php [R=301,L]
+
+#開催概要（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^outline/index.html http://www.humanfair-cleanexpo.org/outline/index.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^outline/index.html https://www.humanfair-cleanexpo.org/outline/index.php [R=301,L]
+
+#ここに注目！（本展の特長）（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^outline/point.html http://www.humanfair-cleanexpo.org/outline/point.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^outline/point.html https://www.humanfair-cleanexpo.org/outline/point.php [R=301,L]
+
+#特別展示ビルメン×セキュリティ（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^outline/security.html http://www.humanfair-cleanexpo.org/outline/security.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^outline/security.html https://www.humanfair-cleanexpo.org/outline/security.php [R=301,L]
+
+#スポーツ施設クリーン&メンテナンスEXPO（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^outline/sports.html http://www.humanfair-cleanexpo.org/outline/sports.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^outline/sports.html https://www.humanfair-cleanexpo.org/outline/sports.php [R=301,L]
+
+#出展対象（ファイル統合、拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^exhibit/extarget.html http://www.humanfair-cleanexpo.org/exhibit/target.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^exhibit/extarget.html https://www.humanfair-cleanexpo.org/exhibit/target.php [R=301,L]
+
+#来場対象（ファイル統合、拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^exhibit/vitarget.html http://www.humanfair-cleanexpo.org/exhibit/target.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^exhibit/vitarget.html https://www.humanfair-cleanexpo.org/exhibit/target.php [R=301,L]
+
+#お申込みから会期までの流れ（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^exhibit/schedule.html http://www.humanfair-cleanexpo.org/exhibit/fee.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^exhibit/schedule.html https://www.humanfair-cleanexpo.org/exhibit/fee.php [R=301,L]
+
+#出展料金（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^exhibit/cost.html http://www.humanfair-cleanexpo.org/exhibit/fee.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^exhibit/cost.html https://www.humanfair-cleanexpo.org/exhibit/fee.php [R=301,L]
+
+#出展オプション（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^exhibit/option.html http://www.humanfair-cleanexpo.org/exhibit/fee.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^exhibit/option.html https://www.humanfair-cleanexpo.org/exhibit/fee.php [R=301,L]
+
+#来場について（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^visitor/index.html http://www.humanfair-cleanexpo.org/visit/index.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^visitor/index.html https://www.humanfair-cleanexpo.org/visit/index.php [R=301,L]
+
+#取材について（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^press/index.html http://www.humanfair-cleanexpo.org/press/index.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^press/index.html https://www.humanfair-cleanexpo.org/press/index.php [R=301,L]
+
+#ロゴ・バナーダウンロード（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^press/download.html http://www.humanfair-cleanexpo.org/press/download.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^press/download.html https://www.humanfair-cleanexpo.org/press/download.php [R=301,L]
+
+#FAQ（拡張子変更）
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^faq/index.html http://www.humanfair-cleanexpo.org/faq/index.php [R=301,L]
+RewriteCond %{SERVER_PORT} 443
+RewriteRule ^faq/index.html https://www.humanfair-cleanexpo.org/faq/index.php [R=301,L]
+
